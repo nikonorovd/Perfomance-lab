@@ -18,11 +18,7 @@ public class MailAuthorizationTests {
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
     wd = new FirefoxDriver();
-    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
-
-  @Test
-  public void testMailAuthorization() throws Exception {
+    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     wd.get("https://mail.ru/?from=logout&amp;ref=main");
     wd.findElement(By.name("clb831530")).click();
     wd.findElement(By.id("mailbox:login")).click();
@@ -33,6 +29,11 @@ public class MailAuthorizationTests {
     wd.findElement(By.id("mailbox:password")).clear();
     wd.findElement(By.id("mailbox:password")).sendKeys("lolipop99");
     wd.findElement(By.xpath("//label[@id='mailbox:submit']/input")).click();
+  }
+
+  @Test
+  public void testMailAuthorization() throws Exception {
+
   }
 
   @AfterMethod (alwaysRun = true)
